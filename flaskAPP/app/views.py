@@ -3,7 +3,7 @@ import os
 import urllib
 from flask import redirect, request, session
 import requests
-from .database import insert_data
+from .database import insert_data, fetch_data
 
 
 # load_dotenv("/Users/kitwj/Documents/Personal/Projects/spotTest/.env", override=True)
@@ -13,7 +13,7 @@ app.secret_key = os.getenv('FLASK_SECRET')
 
 @app.route('/')
 def hello_world():
-	return "<a href= 'http://127.0.0.1:5000/login'>Login hhhhere<a/>"
+	return "<a href= 'http://127.0.0.1:5000/login'>Login hhhhere  <a/>" +  "<a href= 'http://127.0.0.1:5000/databaseData'> whats in teh database? <a/>"
 
 @app.route('/login')
 def login():
@@ -58,7 +58,15 @@ def recentlyPlayed():
 	except:
 		return 'failed'
 	finally:
-		return response
-		# return f"Successfully inputted {len(response)} items :)"
+		return f"Successfully inputted {len(response)} items :) " + "<a href= 'http://127.0.0.1:5000'>Return home<a/>"
+	
+@app.route('/databaseData')
+def get_data():
+	try :
+		out =fetch_data()
+	except:
+		return 'failed'
+	return out
+
 	
 

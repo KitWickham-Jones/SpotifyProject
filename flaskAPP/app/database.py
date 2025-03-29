@@ -27,6 +27,21 @@ def insert_data(inputdata):
         cur.close()
         conn.close()
 
+def fetch_data():
+    conn = psycopg2.connect(user=USER, password=PASSWORD,database=DB, host = "spottest-db-1", port=5432)
+    cur = conn.cursor()
+    try:
+        cur.execute('SELECT * FROM art_Songs')
+        data = cur.fetchall()
+    except:
+        print('failed to fetch data')
+    
+    if conn:
+        cur.close()
+        conn.close()
+
+    return data
+
 
 
 
