@@ -13,7 +13,7 @@ app.secret_key = os.getenv('FLASK_SECRET')
 
 @app.route('/')
 def hello_world():
-	return "<a href= 'http://127.0.0.1:5000/login'>Login hhhhere  <a/>" +  "<a href= 'http://127.0.0.1:5000/databaseData'> whats in teh database? <a/>"
+	return "<a href= 'http://127.0.0.1:5000/login'>Login here     <a/>" +  "<a href= 'http://127.0.0.1:5000/databaseData'> whats in teh database? <a/>"
 
 @app.route('/login')
 def login():
