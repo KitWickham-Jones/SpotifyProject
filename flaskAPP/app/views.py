@@ -5,8 +5,6 @@ from flask import redirect, request, session
 import requests
 from .database import insert_data, fetch_data
 
-
-# load_dotenv("/Users/kitwj/Documents/Personal/Projects/spotTest/.env", override=True)
 CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 app.secret_key = os.getenv('FLASK_SECRET')
