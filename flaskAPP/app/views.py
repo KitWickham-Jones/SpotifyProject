@@ -51,20 +51,13 @@ def recentlyPlayed():
 	}
 	response = requests.get(url=url, headers=headers)
 	response = response.json()
-	try:
-		insert_data(response)
-	except:
-		return 'failed'
-	finally:
-		return f"Successfully inputted {len(response)} items :) " + "<a href= 'http://127.0.0.1:5000'>Return home<a/>"
-	
+	insert_data(response)
+	return f"Successfully inputted {len(response)} items :) " + "<a href= 'http://127.0.0.1:5000'>Return home<a/>"
+
 @app.route('/databaseData')
 def get_data():
-	try :
-		out =fetch_data()
-	except:
-		return 'failed'
-	return out
+	fetch_data()
+
 
 	
 
